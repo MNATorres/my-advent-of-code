@@ -30,7 +30,7 @@ function sortLists(arr_a: number[], arr_b: number[]) {
   arr_b.sort((a, b) => a - b);
 }
 
-function calcular_distancia(arr_a: number[], arr_b: number[]): number {
+function calculate_distance(arr_a: number[], arr_b: number[]): number {
   let distance = 0;
   for (let i = 0; i < arr_a.length; i++) {
     if (arr_a[i] > arr_b[i]) {
@@ -71,7 +71,7 @@ const arr_b: number[] = [];
   //displayData(arr_a, arr_b);
   sortLists(arr_a, arr_b);
   //displayData(arr_a, arr_b);
-  const distance = calcular_distancia(arr_a, arr_b);
+  const distance = calculate_distance(arr_a, arr_b);
   console.log(`La distancia entre los números es ${distance}`);
   //result 1590491
   const findSimilarity = calculate_repeat(arr_a, arr_b);
