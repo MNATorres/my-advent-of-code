@@ -1,1 +1,1 @@
-import './day_1/index'
+import './day_1/part_1'

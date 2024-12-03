@@ -44,15 +44,41 @@ function calcular_distancia(arr_a: number[], arr_b: number[]): number {
   return distance;
 }
 
+function calculate_repeat(arr_a: number[], arr_b: number[]) {
+  let result = 0;
+  arr_a.forEach((currentNumber) => {
+    let totalOccurrences = 0;
+    let i = 0;
+
+    while (i < arr_b.length && arr_b[i] <= currentNumber) {
+      if (arr_b[i] === currentNumber) {
+        totalOccurrences += 1;
+      }
+      i++;
+    }
+    //console.log(`${currentNumber} tiene ${totalOccurrences} repeticiones`);
+
+    result += currentNumber * totalOccurrences;
+  });
+  return result;
+}
+
 const arr_a: number[] = [];
 const arr_b: number[] = [];
 
 (async () => {
   await loadData(arr_a, arr_b);
-  displayData(arr_a, arr_b);
+  //displayData(arr_a, arr_b);
   sortLists(arr_a, arr_b);
-  displayData(arr_a, arr_b);
+  //displayData(arr_a, arr_b);
   const distance = calcular_distancia(arr_a, arr_b);
   console.log(`La distancia entre los números es ${distance}`);
-  // result 1590491
+  //result 1590491
+  const findSimilarity = calculate_repeat(arr_a, arr_b);
+  console.log(`La similitud es de ${findSimilarity}`);
 })();
+
+// calculate_repeat(
+//   [1, 1, 1, 2, 3, 4, 4, 5, 7],
+//   [1, 1, 1, 1, 2, 2, 2, 3, 3, 4, 5, 6]
+// );
